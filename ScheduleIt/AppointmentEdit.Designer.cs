@@ -47,13 +47,13 @@
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
+            this.apptEditCancel = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
+            this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -163,7 +163,7 @@
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(10, 435);
+            this.textBox4.Location = new System.Drawing.Point(13, 435);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(423, 23);
             this.textBox4.TabIndex = 15;
@@ -171,7 +171,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(10, 288);
+            this.label6.Location = new System.Drawing.Point(13, 288);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(71, 16);
             this.label6.TabIndex = 14;
@@ -180,7 +180,7 @@
             // textBox3
             // 
             this.textBox3.AcceptsReturn = true;
-            this.textBox3.Location = new System.Drawing.Point(10, 307);
+            this.textBox3.Location = new System.Drawing.Point(13, 307);
             this.textBox3.Multiline = true;
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(423, 93);
@@ -192,7 +192,7 @@
             this.comboBox5.Items.AddRange(new object[] {
             "Hr",
             "Min"});
-            this.comboBox5.Location = new System.Drawing.Point(325, 212);
+            this.comboBox5.Location = new System.Drawing.Point(328, 224);
             this.comboBox5.Name = "comboBox5";
             this.comboBox5.Size = new System.Drawing.Size(51, 24);
             this.comboBox5.TabIndex = 12;
@@ -207,7 +207,7 @@
             "4",
             "5",
             "6"});
-            this.comboBox6.Location = new System.Drawing.Point(268, 212);
+            this.comboBox6.Location = new System.Drawing.Point(271, 224);
             this.comboBox6.Name = "comboBox6";
             this.comboBox6.Size = new System.Drawing.Size(51, 24);
             this.comboBox6.TabIndex = 11;
@@ -215,7 +215,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(265, 180);
+            this.label5.Location = new System.Drawing.Point(268, 192);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(51, 16);
             this.label5.TabIndex = 10;
@@ -227,7 +227,7 @@
             this.comboBox4.Items.AddRange(new object[] {
             "AM",
             "PM"});
-            this.comboBox4.Location = new System.Drawing.Point(382, 131);
+            this.comboBox4.Location = new System.Drawing.Point(385, 143);
             this.comboBox4.Name = "comboBox4";
             this.comboBox4.Size = new System.Drawing.Size(51, 24);
             this.comboBox4.TabIndex = 9;
@@ -248,7 +248,7 @@
             "45",
             "50",
             "55"});
-            this.comboBox3.Location = new System.Drawing.Point(325, 131);
+            this.comboBox3.Location = new System.Drawing.Point(328, 143);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(51, 24);
             this.comboBox3.TabIndex = 8;
@@ -267,7 +267,7 @@
             "3",
             "4",
             "5"});
-            this.comboBox2.Location = new System.Drawing.Point(268, 131);
+            this.comboBox2.Location = new System.Drawing.Point(271, 143);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(51, 24);
             this.comboBox2.TabIndex = 7;
@@ -275,22 +275,15 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(265, 99);
+            this.label4.Location = new System.Drawing.Point(268, 111);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(74, 16);
             this.label4.TabIndex = 6;
             this.label4.Text = "Start Time:";
             // 
-            // monthCalendar1
-            // 
-            this.monthCalendar1.Location = new System.Drawing.Point(10, 99);
-            this.monthCalendar1.MinDate = new System.DateTime(2019, 1, 27, 0, 0, 0, 0);
-            this.monthCalendar1.Name = "monthCalendar1";
-            this.monthCalendar1.TabIndex = 5;
-            // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(70, 59);
+            this.textBox2.Location = new System.Drawing.Point(73, 59);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(363, 23);
             this.textBox2.TabIndex = 3;
@@ -298,7 +291,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(7, 61);
+            this.label3.Location = new System.Drawing.Point(10, 61);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(60, 16);
             this.label3.TabIndex = 2;
@@ -306,7 +299,7 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(70, 21);
+            this.textBox1.Location = new System.Drawing.Point(73, 21);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(363, 23);
             this.textBox1.TabIndex = 1;
@@ -314,20 +307,21 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(7, 23);
+            this.label2.Location = new System.Drawing.Point(10, 23);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(56, 16);
             this.label2.TabIndex = 0;
             this.label2.Text = "Subject:";
             // 
-            // button3
+            // apptEditCancel
             // 
-            this.button3.Location = new System.Drawing.Point(16, 848);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(121, 45);
-            this.button3.TabIndex = 7;
-            this.button3.Text = "Cancel";
-            this.button3.UseVisualStyleBackColor = true;
+            this.apptEditCancel.Location = new System.Drawing.Point(16, 848);
+            this.apptEditCancel.Name = "apptEditCancel";
+            this.apptEditCancel.Size = new System.Drawing.Size(121, 45);
+            this.apptEditCancel.TabIndex = 7;
+            this.apptEditCancel.Text = "Cancel";
+            this.apptEditCancel.UseVisualStyleBackColor = true;
+            this.apptEditCancel.Click += new System.EventHandler(this.apptEditCancel_Click);
             // 
             // button4
             // 
@@ -338,13 +332,21 @@
             this.button4.Text = "Save";
             this.button4.UseVisualStyleBackColor = true;
             // 
+            // monthCalendar1
+            // 
+            this.monthCalendar1.FirstDayOfWeek = System.Windows.Forms.Day.Monday;
+            this.monthCalendar1.Location = new System.Drawing.Point(13, 99);
+            this.monthCalendar1.MinDate = new System.DateTime(2019, 1, 27, 0, 0, 0, 0);
+            this.monthCalendar1.Name = "monthCalendar1";
+            this.monthCalendar1.TabIndex = 5;
+            // 
             // AppointmentEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(483, 905);
             this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.apptEditCancel);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button1);
@@ -353,6 +355,7 @@
             this.Controls.Add(this.modifyApptLabel);
             this.Controls.Add(this.addApptLabel);
             this.Name = "AppointmentEdit";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Appointment";
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
@@ -384,11 +387,11 @@
         private System.Windows.Forms.ComboBox comboBox3;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.MonthCalendar monthCalendar1;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button apptEditCancel;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.MonthCalendar monthCalendar1;
     }
 }

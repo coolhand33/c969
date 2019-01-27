@@ -1,6 +1,6 @@
 ﻿namespace ScheduleIt
 {
-    partial class LoginScreen
+    partial class Login
     {
         /// <summary>
         /// Required designer variable.
@@ -46,7 +46,7 @@
             this.loginPanel.Controls.Add(this.loginUsernameText);
             this.loginPanel.Location = new System.Drawing.Point(12, 12);
             this.loginPanel.Name = "loginPanel";
-            this.loginPanel.Size = new System.Drawing.Size(210, 280);
+            this.loginPanel.Size = new System.Drawing.Size(210, 284);
             this.loginPanel.TabIndex = 0;
             // 
             // loginPasswdLabel
@@ -80,13 +80,14 @@
             // 
             this.loginButton.AutoSize = true;
             this.loginButton.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.loginButton.Location = new System.Drawing.Point(0, 236);
+            this.loginButton.Location = new System.Drawing.Point(0, 240);
             this.loginButton.Name = "loginButton";
             this.loginButton.Size = new System.Drawing.Size(210, 44);
             this.loginButton.TabIndex = 1;
             this.loginButton.Text = "Login";
             this.loginButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.loginButton.UseVisualStyleBackColor = true;
+            this.loginButton.Click += new System.EventHandler(this.loginButton_Click);
             // 
             // loginUsernameText
             // 
@@ -95,13 +96,13 @@
             this.loginUsernameText.Size = new System.Drawing.Size(200, 20);
             this.loginUsernameText.TabIndex = 0;
             // 
-            // LoginScreen
+            // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(236, 308);
             this.Controls.Add(this.loginPanel);
-            this.Name = "LoginScreen";
+            this.Name = "Login";
             this.Text = "Form1";
             this.loginPanel.ResumeLayout(false);
             this.loginPanel.PerformLayout();

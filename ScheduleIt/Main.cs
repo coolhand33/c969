@@ -17,9 +17,15 @@ namespace ScheduleIt
             InitializeComponent();
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void Main_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void addApptButton_Click(object sender, EventArgs e)
+        {
+            AppointmentEdit apptWin = new AppointmentEdit(true);
+            apptWin.Show();
         }
     }
 }

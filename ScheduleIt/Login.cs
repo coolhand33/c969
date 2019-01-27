@@ -10,12 +10,16 @@ using System.Windows.Forms;
 
 namespace ScheduleIt
 {
-    public partial class LoginScreen : Form
+    public partial class Login : Form
     {
-        public LoginScreen()
+        public Login()
         {
             InitializeComponent();
         }
 
+        private void loginButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

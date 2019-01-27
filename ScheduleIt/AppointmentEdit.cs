@@ -12,9 +12,17 @@ namespace ScheduleIt
 {
     public partial class AppointmentEdit : Form
     {
-        public AppointmentEdit()
+        private readonly bool @new;
+
+        public AppointmentEdit(bool New)
         {
             InitializeComponent();
+            @new = New;
+        }
+
+        private void apptEditCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
