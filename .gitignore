@@ -2,5 +2,8 @@
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
-/.vs
+/ScheduleIt/.vs/*
 /ScheduleIt/.vs/ScheduleIt/v15/Server/sqlite3
+/ScheduleIt/bin
+/ScheduleIt/obj
+
