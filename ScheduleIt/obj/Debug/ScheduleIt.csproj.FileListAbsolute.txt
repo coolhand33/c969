@@ -18,3 +18,13 @@ C:\Users\clint\source\repos\c969\ScheduleIt\obj\Debug\ScheduleIt.Login.resources
 C:\Users\clint\source\repos\c969\ScheduleIt\bin\Debug\es-MX\ScheduleIt.resources.dll
 C:\Users\clint\source\repos\c969\ScheduleIt\obj\Debug\ScheduleIt.Properties.Resources.es-MX.resources
 C:\Users\clint\source\repos\c969\ScheduleIt\obj\Debug\es-MX\ScheduleIt.resources.dll
+C:\Users\clint\source\repos\c969\ScheduleIt\bin\Debug\Google.Protobuf.xml
+C:\Users\clint\source\repos\c969\ScheduleIt\bin\Debug\EntityFramework.dll
+C:\Users\clint\source\repos\c969\ScheduleIt\bin\Debug\EntityFramework.xml
+C:\Users\clint\source\repos\c969\ScheduleIt\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\clint\source\repos\c969\ScheduleIt\bin\Debug\MySql.Data.Entity.EF6.dll
+C:\Users\clint\source\repos\c969\ScheduleIt\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\clint\source\repos\c969\ScheduleIt\bin\Debug\MySql.Data.Entity.EF6.xml
+C:\Users\clint\source\repos\c969\ScheduleIt\bin\Debug\AppointmentsDB.dll
+C:\Users\clint\source\repos\c969\ScheduleIt\bin\Debug\AppointmentsDB.pdb
+C:\Users\clint\source\repos\c969\ScheduleIt\bin\Debug\AppointmentsDB.dll.config

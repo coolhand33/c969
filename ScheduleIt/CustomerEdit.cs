@@ -12,9 +12,27 @@ namespace ScheduleIt
 {
     public partial class CustomerEdit : Form
     {
-        public CustomerEdit()
+        public CustomerEdit(bool newCust = true)
         {
             InitializeComponent();
+            if( newCust)
+            {
+                custAddLabel.Visible = true;
+                custModifyLabel.Visible = false;
+            }
+        }
+
+        AppointmentsDB.ApptEntities context = new AppointmentsDB.ApptEntities();
+
+        private void customerSave_Click(object sender, EventArgs e)
+        {
+            string city = customerCity.Text;
+            string country = customerCountry.Text;
+
+            AppointmentsDB.customer customer = new AppointmentsDB.customer()
+            {
+                customerName = customerName.Text
+            };
         }
     }
 }
