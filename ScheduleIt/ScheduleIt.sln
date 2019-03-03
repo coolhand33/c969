@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.271
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScheduleIt", "ScheduleIt.csproj", "{DB9629AD-9EAD-4694-95B6-285B1691DFB8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppointmentsDB", "..\..\AppointmentsDB\AppointmentsDB\AppointmentsDB.csproj", "{4A00A892-A1DB-4D40-9097-4651F64D4A2E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DB9629AD-9EAD-4694-95B6-285B1691DFB8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB9629AD-9EAD-4694-95B6-285B1691DFB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB9629AD-9EAD-4694-95B6-285B1691DFB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB9629AD-9EAD-4694-95B6-285B1691DFB8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A00A892-A1DB-4D40-9097-4651F64D4A2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A00A892-A1DB-4D40-9097-4651F64D4A2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A00A892-A1DB-4D40-9097-4651F64D4A2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A00A892-A1DB-4D40-9097-4651F64D4A2E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {361F9F58-2347-4641-A52C-6BA6A7EBD066}
+	EndGlobalSection
+EndGlobal
