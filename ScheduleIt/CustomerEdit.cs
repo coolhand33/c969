@@ -32,13 +32,13 @@ namespace ScheduleIt
                 custModifyLabel.Visible = true;
 
                 int custIdToEdit = int.Parse(cust.customerId.ToString());
-                List<CustomerInfo> custInfo = DataAccess.GetCustomerInfo(custIdToEdit);
-                //custIdBox.Text = custInfo.Select(c => c.Id).ToString();
+                customer customerToEdit = DataAccess.GetCustomer(custIdToEdit);
+                custIdBox.Text = customerToEdit.customerId.ToString();
                 //addressIdBox.Text = custInfo.Select(c => c.AddressId).ToString();
                 //cityIdBox.Text = custInfo.Select(c => c.CityId).ToString();
                 //countryIdBox.Text = custInfo.Select(c => c.CountryId).ToString();
 
-                //nameBox.Text = custInfo.Select(c => c.Name).ToString();
+                nameBox.Text = customerToEdit.customerName.ToString();
                 //phoneBox.Text = custInfo.Select(c => c.Phone).ToString();
                 //addressBox.Text = custInfo.Select(c => c.Address1).ToString();
                 //address2Box.Text = custInfo.Select(c => c.Address2).ToString();
