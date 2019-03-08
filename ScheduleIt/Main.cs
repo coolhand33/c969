@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using System.Data;
 using MySql.Data;
 using MySql.Data.MySqlClient;
+using ApptsDb;
 
 namespace ScheduleIt
 {
@@ -19,11 +20,7 @@ namespace ScheduleIt
             InitializeComponent();
         }
 
-        // on load, load data into datagridviews
-        private void Main_Load(object sender, EventArgs e)
-        {
-        }
-
+        //buttons start
         private void addButton_Click(object sender, EventArgs e)
         {
             switch (tabControl1.SelectedIndex)
@@ -35,10 +32,63 @@ namespace ScheduleIt
                     break;
                 //Customers
                 case 1:
-                    new CustomerEdit(true).ShowDialog();
+                    CustomerEdit custEditForm = new CustomerEdit(new customer());
+                    custEditForm.ShowDialog();
+                    DialogResult res = custEditForm.DialogResult;
+                    if( res == DialogResult.OK)
+                    {
+                        _UpdateCustomersTbl();
+                    }
                     break;
             }
         }
+
+        private void deleteButton_Click(object sender, EventArgs e)
+        {
+            switch (tabControl1.SelectedIndex)
+            {
+                //Appointments
+                case 0:
+                    AppointmentEdit apptWin = new AppointmentEdit(true);
+                    apptWin.Show();
+                    break;
+                //Customers
+                case 1:
+                    int rowIndex = customersDataGrid.SelectedRows[0].Index;
+                    DataGridViewRow selectedRow = customersDataGrid.Rows[rowIndex];
+                    var custId = int.Parse(selectedRow.Cells["Id"].Value.ToString());
+                    DataAccess.DeleteCustomer(custId);
+                    _UpdateCustomersTbl();
+                    break;
+            }
+        }
+
+        private void modifyButton_Click(object sender, EventArgs e)
+        {
+            switch (tabControl1.SelectedIndex)
+            {
+                //Appointments
+                case 0:
+                    AppointmentEdit apptWin = new AppointmentEdit(true);
+                    apptWin.Show();
+                    break;
+                //Customers
+                case 1:
+                    int rowIndex = customersDataGrid.SelectedRows[0].Index;
+                    DataGridViewRow selectedRow = customersDataGrid.Rows[rowIndex];
+                    var custId = int.Parse(selectedRow.Cells["Id"].Value.ToString());
+                    customer custToEdit = DataAccess.GetCustomer(custId);
+                    CustomerEdit custEditForm = new CustomerEdit(custToEdit);
+                    custEditForm.ShowDialog();
+                    DialogResult res = custEditForm.DialogResult;
+                    if (res == DialogResult.OK)
+                    {
+                        _UpdateCustomersTbl();
+                    }
+                    break;
+            }
+        }
+        //end buttons
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -48,7 +98,7 @@ namespace ScheduleIt
             {
                 try
                 {
-                    Update_Customers_Tbl();
+                    _UpdateCustomersTbl();
                 }
                 catch(Exception ex)
                 {
@@ -62,27 +112,11 @@ namespace ScheduleIt
             Application.Exit();
         }
 
-        private void Update_Customers_Tbl()
+        private void _UpdateCustomersTbl()
         {
-            using (AppointmentsDB.ApptEntities context = new AppointmentsDB.ApptEntities()) {
-                var query = from cust in context.customers
-                            join add in context.addresses on cust.addressId equals add.addressId
-                            join cit in context.cities on add.cityId equals cit.cityId
-                            join cou in context.countries on cit.countryId equals cou.countryId
-                            orderby cust.customerName ascending
-                            select new
-                            {
-                                Name = cust.customerName,
-                                Phone = add.phone,
-                                Address1 = add.address1,
-                                Address2 = add.address2,
-                                City = cit.city1,
-                                PostalCode = add.postalCode,
-                                Country = cou.country1
-                            };
-
-                customersDataGrid.DataSource = query.ToList();
-            }
+            List<CustomerDisplay> custs = DataAccess.GetCustomerDisplay();
+            customersDataGrid.DataSource = custs;
+            customersDataGrid.Columns["Id"].Visible = false;
         }
     }
 }
