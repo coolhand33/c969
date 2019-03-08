@@ -133,13 +133,6 @@
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Properties\DataSources\AppointmentsDB.address.datasource" />
-    <None Include="Properties\DataSources\AppointmentsDB.appointment.datasource" />
-    <None Include="Properties\DataSources\AppointmentsDB.ApptEntities.datasource" />
-    <None Include="Properties\DataSources\AppointmentsDB.city.datasource" />
-    <None Include="Properties\DataSources\AppointmentsDB.country.datasource" />
-    <None Include="Properties\DataSources\AppointmentsDB.customer.datasource" />
-    <None Include="Properties\DataSources\AppointmentsDB.user.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -159,10 +152,13 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\AppointmentsDB\AppointmentsDB\AppointmentsDB.csproj">
-      <Project>{4a00a892-a1db-4d40-9097-4651f64d4a2e}</Project>
-      <Name>AppointmentsDB</Name>
+    <ProjectReference Include="..\..\ApptsDb\ApptsDb\ApptsDb.csproj">
+      <Project>{aef36402-df1b-4f64-9fc9-e29dd007d861}</Project>
+      <Name>ApptsDb</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\DataSources\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

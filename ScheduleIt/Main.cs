@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using System.Data;
 using MySql.Data;
 using MySql.Data.MySqlClient;
+using ApptsDb;
 
 namespace ScheduleIt
 {
