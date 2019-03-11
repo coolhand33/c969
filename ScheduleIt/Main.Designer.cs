@@ -176,9 +176,14 @@
             // 
             // customersDataGrid
             // 
+            this.customersDataGrid.AllowUserToAddRows = false;
+            this.customersDataGrid.AllowUserToDeleteRows = false;
+            this.customersDataGrid.AllowUserToResizeRows = false;
             this.customersDataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.customersDataGrid.CausesValidation = false;
             this.customersDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.customersDataGrid.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.customersDataGrid.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.customersDataGrid.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.customersDataGrid.Location = new System.Drawing.Point(3, 3);
             this.customersDataGrid.MultiSelect = false;

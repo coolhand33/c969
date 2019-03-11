@@ -49,10 +49,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.countryBox = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.custIdBox = new System.Windows.Forms.TextBox();
-            this.addressIdBox = new System.Windows.Forms.TextBox();
-            this.cityIdBox = new System.Windows.Forms.TextBox();
-            this.countryIdBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.addressBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -228,51 +224,11 @@
             this.label7.TabIndex = 9010;
             this.label7.Text = "Country";
             // 
-            // custIdBox
-            // 
-            this.custIdBox.Enabled = false;
-            this.custIdBox.Location = new System.Drawing.Point(179, 12);
-            this.custIdBox.Name = "custIdBox";
-            this.custIdBox.Size = new System.Drawing.Size(100, 23);
-            this.custIdBox.TabIndex = 9012;
-            this.custIdBox.Visible = false;
-            // 
-            // addressIdBox
-            // 
-            this.addressIdBox.Enabled = false;
-            this.addressIdBox.Location = new System.Drawing.Point(179, 12);
-            this.addressIdBox.Name = "addressIdBox";
-            this.addressIdBox.Size = new System.Drawing.Size(100, 23);
-            this.addressIdBox.TabIndex = 9013;
-            this.addressIdBox.Visible = false;
-            // 
-            // cityIdBox
-            // 
-            this.cityIdBox.Enabled = false;
-            this.cityIdBox.Location = new System.Drawing.Point(179, 12);
-            this.cityIdBox.Name = "cityIdBox";
-            this.cityIdBox.Size = new System.Drawing.Size(100, 23);
-            this.cityIdBox.TabIndex = 9014;
-            this.cityIdBox.Visible = false;
-            // 
-            // countryIdBox
-            // 
-            this.countryIdBox.Enabled = false;
-            this.countryIdBox.Location = new System.Drawing.Point(179, 12);
-            this.countryIdBox.Name = "countryIdBox";
-            this.countryIdBox.Size = new System.Drawing.Size(100, 23);
-            this.countryIdBox.TabIndex = 9015;
-            this.countryIdBox.Visible = false;
-            // 
             // CustomerEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(436, 508);
-            this.Controls.Add(this.countryIdBox);
-            this.Controls.Add(this.cityIdBox);
-            this.Controls.Add(this.addressIdBox);
-            this.Controls.Add(this.custIdBox);
             this.Controls.Add(this.countryBox);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.postalCodeBox);
@@ -324,9 +280,5 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox countryBox;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox custIdBox;
-        private System.Windows.Forms.TextBox addressIdBox;
-        private System.Windows.Forms.TextBox cityIdBox;
-        private System.Windows.Forms.TextBox countryIdBox;
     }
 }

@@ -32,7 +32,7 @@ namespace ScheduleIt
                     break;
                 //Customers
                 case 1:
-                    CustomerEdit custEditForm = new CustomerEdit(new customer());
+                    CustomerEdit custEditForm = new CustomerEdit();
                     custEditForm.ShowDialog();
                     DialogResult res = custEditForm.DialogResult;
                     if( res == DialogResult.OK)
@@ -77,8 +77,7 @@ namespace ScheduleIt
                     int rowIndex = customersDataGrid.SelectedRows[0].Index;
                     DataGridViewRow selectedRow = customersDataGrid.Rows[rowIndex];
                     var custId = int.Parse(selectedRow.Cells["Id"].Value.ToString());
-                    customer custToEdit = DataAccess.GetCustomer(custId);
-                    CustomerEdit custEditForm = new CustomerEdit(custToEdit);
+                    CustomerEdit custEditForm = new CustomerEdit(custId);
                     custEditForm.ShowDialog();
                     DialogResult res = custEditForm.DialogResult;
                     if (res == DialogResult.OK)
