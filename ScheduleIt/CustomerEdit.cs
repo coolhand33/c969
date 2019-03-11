@@ -16,18 +16,19 @@ namespace ScheduleIt
         private customer Customer { get; set; }
         private bool newCust = false;
 
-        public CustomerEdit(customer cust)
+        public CustomerEdit(int custId = 0)
         {
             InitializeComponent();
-            this.Customer = cust;
-            if ( this.Customer.customerId == 0 )
+            if ( custId == 0 )
             {
                 custAddLabel.Visible = true;
                 custModifyLabel.Visible = false;
                 this.newCust = true;
+                this.Customer = new customer();
             }
             else
             {
+                this.Customer = DataAccess.GetCustomerById(custId);
                 custAddLabel.Visible = false;
                 custModifyLabel.Visible = true;
 
@@ -44,23 +45,34 @@ namespace ScheduleIt
 
         private void customerSave_Click(object sender, EventArgs e)
         {
-            this.Customer.customerName = nameBox.Text;
-            this.Customer.active = customerActive.Checked;
-            this.Customer.address = GetAddress();
-            this.Customer.address.city = GetCity();
-            this.Customer.address.city.country = GetCountry();
-            this.Customer.lastUpdateBy = "test";
-
-            if( this.newCust )
+            //Customer info
+            if ( this.newCust )
             {
                 this.Customer.createdBy = "test";
                 this.Customer.createDate = DateTime.UtcNow;
-                this.Customer.lastUpdate = DateTime.UtcNow;
+            }
+            this.Customer.customerName = nameBox.Text;
+            this.Customer.active = customerActive.Checked;
+            this.Customer.lastUpdateBy = "test";
+            this.Customer.lastUpdate = DateTime.UtcNow;
+
+            //Address info
+            if( this.newCust)
+            {
+                this.Customer.address = GetAddress();
+                this.Customer.address.city = GetCity();
+                this.Customer.address.city.country = GetCountry();
             }
             else
             {
-                this.Customer.lastUpdate = DateTime.UtcNow;
+                this.Customer.address.address1 = addressBox.Text;
+                this.Customer.address.address2 = address2Box.Text;
+                this.Customer.address.postalCode = postalCodeBox.Text;
+                this.Customer.address.phone = phoneBox.Text;
+                this.Customer.address.lastUpdate = DateTime.UtcNow;
+                this.Customer.address.lastUpdateBy = "test";
             }
+
             
             try
             {
@@ -75,64 +87,43 @@ namespace ScheduleIt
 
         private address GetAddress()
         {
-            address addr = new address
+            return new address
             {
-                addressId = this.Customer.addressId,
                 address1 = addressBox.Text,
                 address2 = address2Box.Text,
                 postalCode = postalCodeBox.Text,
                 phone = phoneBox.Text,
                 lastUpdate = DateTime.UtcNow,
                 lastUpdateBy = "test",
-                cityId = this.Customer.address.cityId
+                createdBy = "test",
+                createDate = DateTime.UtcNow
             };
-
-            if ( this.newCust)
-            {
-                addr.createdBy = "test";
-                addr.createDate = DateTime.UtcNow;
-            }
-
-            return addr;
         }
 
         private city GetCity()
         {
-            city City = new city
+            return new city
             {
-                cityId = this.Customer.address.cityId,
                 city1 = cityBox.Text,
                 lastUpdate = DateTime.UtcNow,
                 lastUpdateBy = "test",
-                countryId = this.Customer.address.city.countryId
+                createdBy = "test",
+                createDate = DateTime.UtcNow
             };
 
-            if( this.newCust)
-            {
-                City.createdBy = "test";
-                City.createDate = DateTime.UtcNow;
-            }
-
-            return City;
         }
 
         private country GetCountry()
         {
-            country country = new country
+            return new country
             {
-                countryId = this.Customer.address.city.countryId,
                 country1 = countryBox.Text,
                 lastUpdate = DateTime.UtcNow,
-                lastUpdateBy = "test"
+                lastUpdateBy = "test",
+                createdBy = "test",
+                createDate = DateTime.UtcNow
             };
 
-            if( this.newCust)
-            {
-                country.createdBy = "test";
-                country.createDate = DateTime.UtcNow;
-            }
-
-            return country;
         }
     }
 }
