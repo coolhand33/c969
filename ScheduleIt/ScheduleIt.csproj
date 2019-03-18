@@ -83,6 +83,7 @@
     <Compile Include="CustomerEdit.Designer.cs">
       <DependentUpon>CustomerEdit.cs</DependentUpon>
     </Compile>
+    <Compile Include="GlobalVar.cs" />
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>

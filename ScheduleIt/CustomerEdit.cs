@@ -48,20 +48,20 @@ namespace ScheduleIt
             //Customer info
             if ( this.newCust )
             {
-                this.Customer.createdBy = "test";
+                this.Customer.createdBy = GlobalVar.LoggedInUser.Username;
                 this.Customer.createDate = DateTime.UtcNow;
             }
             this.Customer.customerName = nameBox.Text;
             this.Customer.active = customerActive.Checked;
-            this.Customer.lastUpdateBy = "test";
+            this.Customer.lastUpdateBy = GlobalVar.LoggedInUser.Username;
             this.Customer.lastUpdate = DateTime.UtcNow;
 
             //Address info
             if( this.newCust)
             {
-                this.Customer.address = GetAddress();
-                this.Customer.address.city = GetCity();
-                this.Customer.address.city.country = GetCountry();
+                this.Customer.address = GetNewAddress();
+                this.Customer.address.city = GetNewCity();
+                this.Customer.address.city.country = GetNewCountry();
             }
             else
             {
@@ -70,7 +70,7 @@ namespace ScheduleIt
                 this.Customer.address.postalCode = postalCodeBox.Text;
                 this.Customer.address.phone = phoneBox.Text;
                 this.Customer.address.lastUpdate = DateTime.UtcNow;
-                this.Customer.address.lastUpdateBy = "test";
+                this.Customer.address.lastUpdateBy = GlobalVar.LoggedInUser.Username;
             }
 
             
@@ -85,7 +85,7 @@ namespace ScheduleIt
             }
         }
 
-        private address GetAddress()
+        private address GetNewAddress()
         {
             return new address
             {
@@ -94,33 +94,33 @@ namespace ScheduleIt
                 postalCode = postalCodeBox.Text,
                 phone = phoneBox.Text,
                 lastUpdate = DateTime.UtcNow,
-                lastUpdateBy = "test",
+                lastUpdateBy = GlobalVar.LoggedInUser.Username,
                 createdBy = "test",
                 createDate = DateTime.UtcNow
             };
         }
 
-        private city GetCity()
+        private city GetNewCity()
         {
             return new city
             {
                 city1 = cityBox.Text,
                 lastUpdate = DateTime.UtcNow,
-                lastUpdateBy = "test",
-                createdBy = "test",
+                lastUpdateBy = GlobalVar.LoggedInUser.Username,
+                createdBy = GlobalVar.LoggedInUser.Username,
                 createDate = DateTime.UtcNow
             };
 
         }
 
-        private country GetCountry()
+        private country GetNewCountry()
         {
             return new country
             {
                 country1 = countryBox.Text,
                 lastUpdate = DateTime.UtcNow,
-                lastUpdateBy = "test",
-                createdBy = "test",
+                lastUpdateBy = GlobalVar.LoggedInUser.Username,
+                createdBy = GlobalVar.LoggedInUser.Username,
                 createDate = DateTime.UtcNow
             };
 
