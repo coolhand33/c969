@@ -35,12 +35,12 @@
             this.apptViewType = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.appointmentGridView = new System.Windows.Forms.DataGridView();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.apptTab = new System.Windows.Forms.TabPage();
             this.custTab = new System.Windows.Forms.TabPage();
             this.customersDataGrid = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.appointmentGridView)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.apptTab.SuspendLayout();
             this.custTab.SuspendLayout();
@@ -124,17 +124,29 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Next Appointment";
             // 
-            // dataGridView1
+            // appointmentGridView
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AllowUserToOrderColumns = true;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(9, 281);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(1047, 383);
-            this.dataGridView1.TabIndex = 14;
+            this.appointmentGridView.AllowUserToAddRows = false;
+            this.appointmentGridView.AllowUserToDeleteRows = false;
+            this.appointmentGridView.AllowUserToResizeRows = false;
+            this.appointmentGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.appointmentGridView.CausesValidation = false;
+            this.appointmentGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.appointmentGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.appointmentGridView.Location = new System.Drawing.Point(9, 281);
+            this.appointmentGridView.MultiSelect = false;
+            this.appointmentGridView.Name = "appointmentGridView";
+            this.appointmentGridView.ReadOnly = true;
+            this.appointmentGridView.RowHeadersVisible = false;
+            this.appointmentGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
+            this.appointmentGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.appointmentGridView.ShowCellErrors = false;
+            this.appointmentGridView.ShowCellToolTips = false;
+            this.appointmentGridView.ShowEditingIcon = false;
+            this.appointmentGridView.ShowRowErrors = false;
+            this.appointmentGridView.Size = new System.Drawing.Size(1047, 383);
+            this.appointmentGridView.TabIndex = 14;
+            this.appointmentGridView.TabStop = false;
             // 
             // tabControl1
             // 
@@ -154,7 +166,7 @@
             this.apptTab.Controls.Add(this.apptViewType);
             this.apptTab.Controls.Add(this.label3);
             this.apptTab.Controls.Add(this.label2);
-            this.apptTab.Controls.Add(this.dataGridView1);
+            this.apptTab.Controls.Add(this.appointmentGridView);
             this.apptTab.Location = new System.Drawing.Point(4, 25);
             this.apptTab.Name = "apptTab";
             this.apptTab.Padding = new System.Windows.Forms.Padding(3);
@@ -208,7 +220,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Your Dashboard";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Main_FormClosed);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Load += new System.EventHandler(this.Main_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.appointmentGridView)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.apptTab.ResumeLayout(false);
             this.apptTab.PerformLayout();
@@ -226,7 +239,7 @@
         private System.Windows.Forms.ComboBox apptViewType;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView appointmentGridView;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage apptTab;
         private System.Windows.Forms.TabPage custTab;
