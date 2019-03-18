@@ -91,7 +91,7 @@ namespace ScheduleIt
                     DialogResult apptRes = apptWin.DialogResult;
                     if (apptRes == DialogResult.OK)
                     {
-                        _UpdateCustomersTbl();
+                        _UpdateAppointmentsTbl();
                     }
                     break;
                 //Customers
