@@ -30,12 +30,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             this.loginPanel = new System.Windows.Forms.Panel();
+            this.loginError = new System.Windows.Forms.Label();
             this.loginPasswdLabel = new System.Windows.Forms.Label();
-            this.loginPasswdText = new System.Windows.Forms.TextBox();
+            this.loginPasswordBox = new System.Windows.Forms.TextBox();
             this.loginUsernameLabel = new System.Windows.Forms.Label();
             this.loginButton = new System.Windows.Forms.Button();
-            this.loginUsernameText = new System.Windows.Forms.TextBox();
-            this.loginError = new System.Windows.Forms.Label();
+            this.loginUsernameBox = new System.Windows.Forms.TextBox();
             this.loginPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -43,22 +43,31 @@
             // 
             this.loginPanel.Controls.Add(this.loginError);
             this.loginPanel.Controls.Add(this.loginPasswdLabel);
-            this.loginPanel.Controls.Add(this.loginPasswdText);
+            this.loginPanel.Controls.Add(this.loginPasswordBox);
             this.loginPanel.Controls.Add(this.loginUsernameLabel);
             this.loginPanel.Controls.Add(this.loginButton);
-            this.loginPanel.Controls.Add(this.loginUsernameText);
+            this.loginPanel.Controls.Add(this.loginUsernameBox);
             resources.ApplyResources(this.loginPanel, "loginPanel");
             this.loginPanel.Name = "loginPanel";
+            // 
+            // loginError
+            // 
+            this.loginError.BackColor = System.Drawing.Color.MistyRose;
+            this.loginError.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            resources.ApplyResources(this.loginError, "loginError");
+            this.loginError.ForeColor = System.Drawing.Color.DarkRed;
+            this.loginError.Name = "loginError";
             // 
             // loginPasswdLabel
             // 
             resources.ApplyResources(this.loginPasswdLabel, "loginPasswdLabel");
             this.loginPasswdLabel.Name = "loginPasswdLabel";
             // 
-            // loginPasswdText
+            // loginPasswordBox
             // 
-            resources.ApplyResources(this.loginPasswdText, "loginPasswdText");
-            this.loginPasswdText.Name = "loginPasswdText";
+            this.loginPasswordBox.CausesValidation = false;
+            resources.ApplyResources(this.loginPasswordBox, "loginPasswordBox");
+            this.loginPasswordBox.Name = "loginPasswordBox";
             // 
             // loginUsernameLabel
             // 
@@ -72,23 +81,17 @@
             this.loginButton.UseVisualStyleBackColor = true;
             this.loginButton.Click += new System.EventHandler(this.loginButton_Click);
             // 
-            // loginUsernameText
+            // loginUsernameBox
             // 
-            resources.ApplyResources(this.loginUsernameText, "loginUsernameText");
-            this.loginUsernameText.Name = "loginUsernameText";
-            // 
-            // loginError
-            // 
-            this.loginError.BackColor = System.Drawing.Color.MistyRose;
-            this.loginError.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            resources.ApplyResources(this.loginError, "loginError");
-            this.loginError.ForeColor = System.Drawing.Color.DarkRed;
-            this.loginError.Name = "loginError";
+            this.loginUsernameBox.CausesValidation = false;
+            resources.ApplyResources(this.loginUsernameBox, "loginUsernameBox");
+            this.loginUsernameBox.Name = "loginUsernameBox";
             // 
             // Login
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CausesValidation = false;
             this.Controls.Add(this.loginPanel);
             this.Name = "Login";
             this.loginPanel.ResumeLayout(false);
@@ -102,9 +105,9 @@
         private System.Windows.Forms.Panel loginPanel;
         private System.Windows.Forms.Label loginUsernameLabel;
         private System.Windows.Forms.Button loginButton;
-        private System.Windows.Forms.TextBox loginUsernameText;
+        private System.Windows.Forms.TextBox loginUsernameBox;
         private System.Windows.Forms.Label loginPasswdLabel;
-        private System.Windows.Forms.TextBox loginPasswdText;
+        private System.Windows.Forms.TextBox loginPasswordBox;
         private System.Windows.Forms.Label loginError;
     }
 }

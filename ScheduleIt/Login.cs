@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ApptsDb;
 
 namespace ScheduleIt
 {
@@ -17,6 +18,7 @@ namespace ScheduleIt
         public Login()
         {
             InitializeComponent();
+            this.AcceptButton = loginButton;
         }
 
         private void loginButton_Click(object sender, EventArgs e)
@@ -37,17 +39,31 @@ namespace ScheduleIt
                 loginError.Text = le.Message;
                 loginError.Visible = true;
             }
+
+            loginButton.Enabled = true;
         }
 
         private bool _Authenticate()
         {
+            loginButton.Enabled = false;
             bool authStatus = false;
-            //IQueryable<AppointmentsDB.user> attemptAuth = dbcontext.users.Where(user => user.userName == loginUsernameText.Text && user.password == loginPasswdText.Text);
+            loginError.Visible = false;
 
-            //if(attemptAuth.Count() == 1)
-            //{
-                authStatus = true;
-            //}
+            using (apptsEntities context = new apptsEntities())
+            {
+                var user = context.users
+                    .Where(u => u.userName == loginUsernameBox.Text)
+                    .Where(u => u.password == loginPasswordBox.Text)
+                    .FirstOrDefault();
+
+                if (user != null)
+                {
+                    authStatus = true;
+                    GlobalVar.LoggedInUser.UserId = user.userId;
+                    GlobalVar.LoggedInUser.Username = user.userName;
+                }
+            }
+
 
             return authStatus;
         }

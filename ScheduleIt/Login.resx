@@ -130,7 +130,7 @@
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="loginError.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
+    <value>9999</value>
   </data>
   <data name="loginError.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleCenter</value>
@@ -166,7 +166,7 @@
     <value>76, 19</value>
   </data>
   <data name="loginPasswdLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
+    <value>9999</value>
   </data>
   <data name="loginPasswdLabel.Text" xml:space="preserve">
     <value>Password</value>
@@ -183,28 +183,31 @@
   <data name="&gt;&gt;loginPasswdLabel.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="loginPasswdText.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="loginPasswordBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>8, 260</value>
   </data>
-  <data name="loginPasswdText.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+  <data name="loginPasswordBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 4, 4, 4</value>
   </data>
-  <data name="loginPasswdText.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="loginPasswordBox.PasswordChar" type="System.Char, mscorlib" xml:space="preserve">
+    <value>*</value>
+  </data>
+  <data name="loginPasswordBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>298, 27</value>
   </data>
-  <data name="loginPasswdText.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
+  <data name="loginPasswordBox.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
   </data>
-  <data name="&gt;&gt;loginPasswdText.Name" xml:space="preserve">
-    <value>loginPasswdText</value>
+  <data name="&gt;&gt;loginPasswordBox.Name" xml:space="preserve">
+    <value>loginPasswordBox</value>
   </data>
-  <data name="&gt;&gt;loginPasswdText.Type" xml:space="preserve">
+  <data name="&gt;&gt;loginPasswordBox.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;loginPasswdText.Parent" xml:space="preserve">
+  <data name="&gt;&gt;loginPasswordBox.Parent" xml:space="preserve">
     <value>loginPanel</value>
   </data>
-  <data name="&gt;&gt;loginPasswdText.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;loginPasswordBox.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
   <data name="loginUsernameLabel.AutoSize" type="System.Boolean, mscorlib">
@@ -223,7 +226,7 @@
     <value>80, 19</value>
   </data>
   <data name="loginUsernameLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
+    <value>9999</value>
   </data>
   <data name="loginUsernameLabel.Text" xml:space="preserve">
     <value>Username</value>
@@ -259,7 +262,7 @@
     <value>315, 64</value>
   </data>
   <data name="loginButton.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="loginButton.Text" xml:space="preserve">
     <value>Login</value>
@@ -279,28 +282,28 @@
   <data name="&gt;&gt;loginButton.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
-  <data name="loginUsernameText.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="loginUsernameBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>8, 111</value>
   </data>
-  <data name="loginUsernameText.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+  <data name="loginUsernameBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 4, 4, 4</value>
   </data>
-  <data name="loginUsernameText.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="loginUsernameBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>298, 27</value>
   </data>
-  <data name="loginUsernameText.TabIndex" type="System.Int32, mscorlib">
+  <data name="loginUsernameBox.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;loginUsernameText.Name" xml:space="preserve">
-    <value>loginUsernameText</value>
+  <data name="&gt;&gt;loginUsernameBox.Name" xml:space="preserve">
+    <value>loginUsernameBox</value>
   </data>
-  <data name="&gt;&gt;loginUsernameText.Type" xml:space="preserve">
+  <data name="&gt;&gt;loginUsernameBox.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;loginUsernameText.Parent" xml:space="preserve">
+  <data name="&gt;&gt;loginUsernameBox.Parent" xml:space="preserve">
     <value>loginPanel</value>
   </data>
-  <data name="&gt;&gt;loginUsernameText.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;loginUsernameBox.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
   <data name="loginPanel.Location" type="System.Drawing.Point, System.Drawing">
