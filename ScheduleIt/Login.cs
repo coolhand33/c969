@@ -29,9 +29,10 @@ namespace ScheduleIt
                 {
                     this.Hide();
                     new Main().Show();
-                } else
+                }
+                else
                 {
-                    throw new LoginException( Properties.Resources.LoginError );
+                    throw new LoginException(Properties.Resources.LoginError);
                 }
             }
             catch( LoginException le)
@@ -51,6 +52,7 @@ namespace ScheduleIt
 
             using (apptsEntities context = new apptsEntities())
             {
+                //I prefer the look and style of linq lambdas. They reduce the amount of code necessary to query the db
                 var user = context.users
                     .Where(u => u.userName == loginUsernameBox.Text)
                     .Where(u => u.password == loginPasswordBox.Text)
@@ -59,8 +61,8 @@ namespace ScheduleIt
                 if (user != null)
                 {
                     authStatus = true;
-                    GlobalVar.LoggedInUser.UserId = user.userId;
-                    GlobalVar.LoggedInUser.Username = user.userName;
+                    LoggedInUser.UserId = user.userId;
+                    LoggedInUser.Username = user.userName;
                 }
             }
 

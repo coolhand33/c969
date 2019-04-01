@@ -1,30 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ScheduleIt
+﻿namespace ScheduleIt
 {
-    public static class GlobalVar
+    public class LoggedInUser
     {
-        public static class LoggedInUser
+        private static string _Username { get; set; }
+        private static int _UserId { get; set; }
+
+        public static string Username
         {
-            private static string _Username { get; set; }
-            private static int _UserId { get; set; }
-
-            public static string Username
-            {
-                get { return _Username; }
-                set { _Username = value; }
-            }
-
-            public static int UserId
-            {
-                get { return _UserId; }
-                set { _UserId = value; }
-            }
+            get { return _Username; }
+            set { _Username = value; }
         }
-        
+
+        public static int UserId
+        {
+            get { return _UserId; }
+            set { _UserId = value; }
+        }
     }
 }

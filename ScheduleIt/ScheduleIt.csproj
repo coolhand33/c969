@@ -84,6 +84,7 @@
       <DependentUpon>CustomerEdit.cs</DependentUpon>
     </Compile>
     <Compile Include="GlobalVar.cs" />
+    <Compile Include="InvalidPhoneException.cs" />
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -99,6 +100,8 @@
     <Compile Include="Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reminder.cs" />
+    <Compile Include="ScheduleException.cs" />
     <EmbeddedResource Include="AppointmentEdit.resx">
       <DependentUpon>AppointmentEdit.cs</DependentUpon>
     </EmbeddedResource>

@@ -15,11 +15,15 @@ namespace ScheduleIt
     {
         appointment Appointment { get; set; }
         bool newAppt { get; set; }
+        List<appointment> cacheAppointments { get; set; }
 
         public AppointmentEdit(int apptId = 0)
         {
             InitializeComponent();
             _PopulateCustomerBoxOptions();
+
+            //getting a list of appointments to check against for overlapping appts
+            this.cacheAppointments = DataAccess.GetUserAppointments(LoggedInUser.UserId);
 
             if (apptId == 0)
             {
@@ -28,6 +32,8 @@ namespace ScheduleIt
                 this.newAppt = true;
                 this.Appointment = new appointment();
                 customerComboBox.SelectedIndex = -1;
+                startDate.Value = DateTime.Now;
+                endDate.Value = DateTime.Now;
             }
             else
             {
@@ -45,6 +51,11 @@ namespace ScheduleIt
                 endTime.Value = this.Appointment.end.ToLocalTime();
                 descriptionBox.Text = this.Appointment.description;
                 urlBox.Text = this.Appointment.url;
+
+                //since this is a modify we need to remove this appointment from cacheAppointments to allow for proper validation
+                //using a lambda here because it simplifies the code without making it unreadable.
+                appointment apptToRemove = this.cacheAppointments.Single(a => a.appointmentId == apptId);
+                this.cacheAppointments.Remove(apptToRemove);
             }
         }
 
@@ -79,15 +90,22 @@ namespace ScheduleIt
             if (custEditRes == DialogResult.OK)
             {
                 _PopulateCustomerBoxOptions();
+                customerComboBox.SelectedIndex = customerComboBox.Items.Count - 1;
             }
         }
 
         private void saveButton_Click(object sender, EventArgs e)
         {
+            if (/*!scheduleVerify()*/false)
+            {
+                this.DialogResult = DialogResult.None;
+                return;
+            }
+
             if (this.newAppt)
             {
                 this.Appointment.createDate = DateTime.UtcNow;
-                this.Appointment.createdBy = GlobalVar.LoggedInUser.Username;
+                this.Appointment.createdBy = LoggedInUser.Username;
             }
 
             this.Appointment.customer = DataAccess.GetCustomerById(int.Parse(customerComboBox.SelectedValue.ToString()));
@@ -97,13 +115,68 @@ namespace ScheduleIt
             this.Appointment.location = locationBox.Text;
             this.Appointment.start = startDate.Value.Date.Add(startTime.Value.TimeOfDay).ToUniversalTime();
             this.Appointment.end = endDate.Value.Date.Add(endTime.Value.TimeOfDay).ToUniversalTime();
+            //resetting seconds to 0 so reminders are accurate
+            this.Appointment.start = this.Appointment.start.AddSeconds(-this.Appointment.start.Second);
+            this.Appointment.end = this.Appointment.end.AddSeconds(-this.Appointment.end.Second);
             this.Appointment.description = descriptionBox.Text;
             this.Appointment.url = urlBox.Text;
-            this.Appointment.userId = GlobalVar.LoggedInUser.UserId;
+            this.Appointment.userId = LoggedInUser.UserId;
+            this.Appointment.lastUpdateBy = LoggedInUser.Username;
             this.Appointment.lastUpdate = DateTime.UtcNow;
-            this.Appointment.lastUpdateBy = GlobalVar.LoggedInUser.Username;
 
             DataAccess.SaveAppointment(this.Appointment);
+
+            
+        }
+
+        private bool scheduleVerify()
+        {
+            scheduleErrorBox.Visible = false;
+
+            try
+            { 
+                //establish local business hours 8AM - 5PM Local
+                int businessStartTime = 8;
+                int businessEndTime = 17;
+                
+                this.Appointment.start = startDate.Value.Date.Add(startTime.Value.TimeOfDay);
+                this.Appointment.end = endDate.Value.Date.Add(endTime.Value.TimeOfDay);
+
+                //check for inside business hours
+                if (this.Appointment.start.Hour < businessStartTime || this.Appointment.end.Hour > businessEndTime || Math.Abs((this.Appointment.start - this.Appointment.end).Hours) > 9)
+                {
+                    throw new ScheduleException("Appointment outside the 8AM - 5PM hours of operation");
+                }
+
+                //start can't be later than the end
+                if(this.Appointment.start > this.Appointment.end)
+                {
+                    throw new ScheduleException("Start date is later than the End date.");
+                }
+
+                //loop over all appointments checking for overlapping, or existing appointments, throw the proper exceptions.
+                foreach (appointment appt in this.cacheAppointments)
+                {
+                    //check for overlapping appt
+                    if((this.Appointment.start > appt.start && this.Appointment.start < appt.end) || (this.Appointment.end < appt.end && this.Appointment.end > appt.start))
+                    {
+                        throw new ScheduleException("You already have an appointment scheduled at this time");
+                    }
+                }
+
+                return true;
+            }
+            catch (ScheduleException schedEx)
+            {
+                scheduleErrorBox.Text = schedEx.Message;
+                scheduleErrorBox.Visible = true;
+                return false;
+            }
+        }
+
+        private void startDate_Validating(object sender, CancelEventArgs e)
+        {
+
         }
     }
 }

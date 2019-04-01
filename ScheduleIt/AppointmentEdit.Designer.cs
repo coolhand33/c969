@@ -34,6 +34,11 @@
             this.customerComboBox = new System.Windows.Forms.ComboBox();
             this.newCustomer = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.scheduleErrorBox = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.endDate = new System.Windows.Forms.DateTimePicker();
+            this.endTime = new System.Windows.Forms.DateTimePicker();
             this.startDate = new System.Windows.Forms.DateTimePicker();
             this.startTime = new System.Windows.Forms.DateTimePicker();
             this.contactBox = new System.Windows.Forms.TextBox();
@@ -50,10 +55,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.apptEditCancel = new System.Windows.Forms.Button();
             this.saveButton = new System.Windows.Forms.Button();
-            this.endDate = new System.Windows.Forms.DateTimePicker();
-            this.endTime = new System.Windows.Forms.DateTimePicker();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -74,7 +75,7 @@
             this.modifyApptLabel.Location = new System.Drawing.Point(12, 9);
             this.modifyApptLabel.Name = "modifyApptLabel";
             this.modifyApptLabel.Size = new System.Drawing.Size(153, 19);
-            this.modifyApptLabel.TabIndex = 1;
+            this.modifyApptLabel.TabIndex = 9999;
             this.modifyApptLabel.Text = "Modify Appointment";
             this.modifyApptLabel.Visible = false;
             // 
@@ -85,7 +86,7 @@
             this.label1.Location = new System.Drawing.Point(13, 63);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(68, 16);
-            this.label1.TabIndex = 2;
+            this.label1.TabIndex = 9999;
             this.label1.Text = "Customer:";
             // 
             // customerComboBox
@@ -98,20 +99,21 @@
             this.customerComboBox.Location = new System.Drawing.Point(85, 62);
             this.customerComboBox.Name = "customerComboBox";
             this.customerComboBox.Size = new System.Drawing.Size(238, 21);
-            this.customerComboBox.TabIndex = 3;
+            this.customerComboBox.TabIndex = 1;
             // 
             // newCustomer
             // 
             this.newCustomer.Location = new System.Drawing.Point(341, 61);
             this.newCustomer.Name = "newCustomer";
             this.newCustomer.Size = new System.Drawing.Size(125, 23);
-            this.newCustomer.TabIndex = 4;
+            this.newCustomer.TabIndex = 2;
             this.newCustomer.Text = "New Customer";
             this.newCustomer.UseVisualStyleBackColor = true;
             this.newCustomer.Click += new System.EventHandler(this.newCustomer_Click);
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.scheduleErrorBox);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.endDate);
@@ -134,9 +136,58 @@
             this.groupBox2.Location = new System.Drawing.Point(16, 109);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(450, 490);
-            this.groupBox2.TabIndex = 6;
+            this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Appointment Details";
+            // 
+            // scheduleErrorBox
+            // 
+            this.scheduleErrorBox.BackColor = System.Drawing.Color.MistyRose;
+            this.scheduleErrorBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.scheduleErrorBox.CausesValidation = false;
+            this.scheduleErrorBox.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.scheduleErrorBox.ForeColor = System.Drawing.Color.Maroon;
+            this.scheduleErrorBox.Location = new System.Drawing.Point(74, 221);
+            this.scheduleErrorBox.Name = "scheduleErrorBox";
+            this.scheduleErrorBox.Size = new System.Drawing.Size(361, 23);
+            this.scheduleErrorBox.TabIndex = 9999;
+            this.scheduleErrorBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.scheduleErrorBox.Visible = false;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(9, 198);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(41, 16);
+            this.label5.TabIndex = 999;
+            this.label5.Text = "Start:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(9, 253);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(34, 16);
+            this.label4.TabIndex = 999;
+            this.label4.Text = "End:";
+            // 
+            // endDate
+            // 
+            this.endDate.Location = new System.Drawing.Point(74, 248);
+            this.endDate.Name = "endDate";
+            this.endDate.Size = new System.Drawing.Size(247, 23);
+            this.endDate.TabIndex = 9;
+            this.endDate.Value = new System.DateTime(2019, 3, 16, 0, 0, 0, 0);
+            // 
+            // endTime
+            // 
+            this.endTime.CustomFormat = "hh:mm tt";
+            this.endTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.endTime.Location = new System.Drawing.Point(327, 248);
+            this.endTime.Name = "endTime";
+            this.endTime.ShowUpDown = true;
+            this.endTime.Size = new System.Drawing.Size(108, 23);
+            this.endTime.TabIndex = 10;
             // 
             // startDate
             // 
@@ -161,7 +212,7 @@
             this.contactBox.Location = new System.Drawing.Point(72, 27);
             this.contactBox.Name = "contactBox";
             this.contactBox.Size = new System.Drawing.Size(363, 23);
-            this.contactBox.TabIndex = 20;
+            this.contactBox.TabIndex = 3;
             // 
             // label9
             // 
@@ -169,7 +220,7 @@
             this.label9.Location = new System.Drawing.Point(9, 29);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(56, 16);
-            this.label9.TabIndex = 19;
+            this.label9.TabIndex = 9999;
             this.label9.Text = "Contact:";
             // 
             // typeBox
@@ -185,7 +236,7 @@
             this.label8.Location = new System.Drawing.Point(9, 68);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(41, 16);
-            this.label8.TabIndex = 17;
+            this.label8.TabIndex = 9999;
             this.label8.Text = "Type:";
             // 
             // label7
@@ -194,7 +245,7 @@
             this.label7.Location = new System.Drawing.Point(12, 427);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(30, 16);
-            this.label7.TabIndex = 16;
+            this.label7.TabIndex = 9999;
             this.label7.Text = "URL";
             // 
             // urlBox
@@ -210,7 +261,7 @@
             this.label6.Location = new System.Drawing.Point(12, 299);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(71, 16);
-            this.label6.TabIndex = 14;
+            this.label6.TabIndex = 9999;
             this.label6.Text = "Description";
             // 
             // descriptionBox
@@ -235,7 +286,7 @@
             this.label3.Location = new System.Drawing.Point(9, 146);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(60, 16);
-            this.label3.TabIndex = 2;
+            this.label3.TabIndex = 9999;
             this.label3.Text = "Location:";
             // 
             // titleBox
@@ -251,16 +302,17 @@
             this.label2.Location = new System.Drawing.Point(9, 108);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(38, 16);
-            this.label2.TabIndex = 0;
+            this.label2.TabIndex = 9999;
             this.label2.Text = "Title:";
             // 
             // apptEditCancel
             // 
+            this.apptEditCancel.CausesValidation = false;
             this.apptEditCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.apptEditCancel.Location = new System.Drawing.Point(16, 621);
             this.apptEditCancel.Name = "apptEditCancel";
             this.apptEditCancel.Size = new System.Drawing.Size(121, 45);
-            this.apptEditCancel.TabIndex = 16;
+            this.apptEditCancel.TabIndex = 14;
             this.apptEditCancel.Text = "Cancel";
             this.apptEditCancel.UseVisualStyleBackColor = true;
             this.apptEditCancel.Click += new System.EventHandler(this.apptEditCancel_Click);
@@ -271,46 +323,10 @@
             this.saveButton.Location = new System.Drawing.Point(345, 621);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(121, 45);
-            this.saveButton.TabIndex = 15;
+            this.saveButton.TabIndex = 13;
             this.saveButton.Text = "Save";
             this.saveButton.UseVisualStyleBackColor = true;
             this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
-            // 
-            // endDate
-            // 
-            this.endDate.Location = new System.Drawing.Point(74, 247);
-            this.endDate.Name = "endDate";
-            this.endDate.Size = new System.Drawing.Size(247, 23);
-            this.endDate.TabIndex = 9;
-            this.endDate.Value = new System.DateTime(2019, 3, 16, 0, 0, 0, 0);
-            // 
-            // endTime
-            // 
-            this.endTime.CustomFormat = "hh:mm tt";
-            this.endTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.endTime.Location = new System.Drawing.Point(327, 247);
-            this.endTime.Name = "endTime";
-            this.endTime.ShowUpDown = true;
-            this.endTime.Size = new System.Drawing.Size(108, 23);
-            this.endTime.TabIndex = 10;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(9, 252);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(34, 16);
-            this.label4.TabIndex = 25;
-            this.label4.Text = "End:";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(9, 198);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(41, 16);
-            this.label5.TabIndex = 26;
-            this.label5.Text = "Start:";
             // 
             // AppointmentEdit
             // 
@@ -363,5 +379,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DateTimePicker endDate;
         private System.Windows.Forms.DateTimePicker endTime;
+        private System.Windows.Forms.TextBox scheduleErrorBox;
     }
 }
