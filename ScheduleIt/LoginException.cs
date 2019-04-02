@@ -10,7 +10,7 @@ namespace ScheduleIt
         {
         }
 
-        public LoginException(string message) : base(message)
+        public LoginException(string message) : base(Properties.Resources.LoginError)
         {
         }
 

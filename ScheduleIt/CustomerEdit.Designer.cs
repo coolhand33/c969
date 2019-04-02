@@ -37,7 +37,6 @@
             this.customerActive = new System.Windows.Forms.CheckBox();
             this.customerCancel = new System.Windows.Forms.Button();
             this.customerSave = new System.Windows.Forms.Button();
-            this.phoneBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.addressBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.addressBox = new System.Windows.Forms.TextBox();
@@ -45,10 +44,11 @@
             this.label2 = new System.Windows.Forms.Label();
             this.cityBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.postalCodeBox = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.countryBox = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.postalCodeBox = new System.Windows.Forms.TextBox();
+            this.phoneBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.addressBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -89,6 +89,7 @@
             this.nameBox.Name = "nameBox";
             this.nameBox.Size = new System.Drawing.Size(392, 23);
             this.nameBox.TabIndex = 2;
+            this.nameBox.Validating += new System.ComponentModel.CancelEventHandler(this.nameBox_Validating);
             // 
             // label5
             // 
@@ -114,13 +115,15 @@
             // 
             // customerCancel
             // 
+            this.customerCancel.CausesValidation = false;
             this.customerCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.customerCancel.Location = new System.Drawing.Point(19, 457);
             this.customerCancel.Name = "customerCancel";
             this.customerCancel.Size = new System.Drawing.Size(116, 39);
-            this.customerCancel.TabIndex = 9;
+            this.customerCancel.TabIndex = 10;
             this.customerCancel.Text = "Cancel";
             this.customerCancel.UseVisualStyleBackColor = true;
+            this.customerCancel.Click += new System.EventHandler(this.customerCancel_Click);
             // 
             // customerSave
             // 
@@ -128,17 +131,10 @@
             this.customerSave.Location = new System.Drawing.Point(295, 457);
             this.customerSave.Name = "customerSave";
             this.customerSave.Size = new System.Drawing.Size(116, 39);
-            this.customerSave.TabIndex = 8;
+            this.customerSave.TabIndex = 9;
             this.customerSave.Text = "Save";
             this.customerSave.UseVisualStyleBackColor = true;
             this.customerSave.Click += new System.EventHandler(this.customerSave_Click);
-            // 
-            // phoneBox
-            // 
-            this.phoneBox.Location = new System.Drawing.Point(19, 149);
-            this.phoneBox.Name = "phoneBox";
-            this.phoneBox.Size = new System.Drawing.Size(392, 23);
-            this.phoneBox.TabIndex = 9001;
             // 
             // label1
             // 
@@ -154,14 +150,15 @@
             this.addressBox.Location = new System.Drawing.Point(19, 210);
             this.addressBox.Name = "addressBox";
             this.addressBox.Size = new System.Drawing.Size(392, 23);
-            this.addressBox.TabIndex = 9003;
+            this.addressBox.TabIndex = 4;
+            this.addressBox.Validating += new System.ComponentModel.CancelEventHandler(this.addressBox_Validating);
             // 
             // address2Box
             // 
             this.address2Box.Location = new System.Drawing.Point(19, 269);
             this.address2Box.Name = "address2Box";
             this.address2Box.Size = new System.Drawing.Size(392, 23);
-            this.address2Box.TabIndex = 9005;
+            this.address2Box.TabIndex = 5;
             // 
             // label2
             // 
@@ -178,8 +175,9 @@
             this.cityBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.cityBox.Location = new System.Drawing.Point(19, 329);
             this.cityBox.Name = "cityBox";
-            this.cityBox.Size = new System.Drawing.Size(210, 23);
-            this.cityBox.TabIndex = 9007;
+            this.cityBox.Size = new System.Drawing.Size(206, 23);
+            this.cityBox.TabIndex = 6;
+            this.cityBox.Validating += new System.ComponentModel.CancelEventHandler(this.cityBox_Validating);
             // 
             // label4
             // 
@@ -190,17 +188,10 @@
             this.label4.TabIndex = 9006;
             this.label4.Text = "City";
             // 
-            // postalCodeBox
-            // 
-            this.postalCodeBox.Location = new System.Drawing.Point(235, 329);
-            this.postalCodeBox.Name = "postalCodeBox";
-            this.postalCodeBox.Size = new System.Drawing.Size(176, 23);
-            this.postalCodeBox.TabIndex = 9009;
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(232, 310);
+            this.label6.Location = new System.Drawing.Point(277, 310);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(75, 16);
             this.label6.TabIndex = 9008;
@@ -213,7 +204,8 @@
             this.countryBox.Location = new System.Drawing.Point(19, 390);
             this.countryBox.Name = "countryBox";
             this.countryBox.Size = new System.Drawing.Size(392, 23);
-            this.countryBox.TabIndex = 9011;
+            this.countryBox.TabIndex = 8;
+            this.countryBox.Validating += new System.ComponentModel.CancelEventHandler(this.countryBox_Validating);
             // 
             // label7
             // 
@@ -221,8 +213,24 @@
             this.label7.Location = new System.Drawing.Point(16, 371);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(52, 16);
-            this.label7.TabIndex = 9010;
+            this.label7.TabIndex = 9000;
             this.label7.Text = "Country";
+            // 
+            // postalCodeBox
+            // 
+            this.postalCodeBox.Location = new System.Drawing.Point(280, 329);
+            this.postalCodeBox.Name = "postalCodeBox";
+            this.postalCodeBox.Size = new System.Drawing.Size(131, 23);
+            this.postalCodeBox.TabIndex = 7;
+            this.postalCodeBox.Validating += new System.ComponentModel.CancelEventHandler(this.postalCodeBox_Validating);
+            // 
+            // phoneBox
+            // 
+            this.phoneBox.Location = new System.Drawing.Point(19, 149);
+            this.phoneBox.Name = "phoneBox";
+            this.phoneBox.Size = new System.Drawing.Size(392, 23);
+            this.phoneBox.TabIndex = 3;
+            this.phoneBox.Validating += new System.ComponentModel.CancelEventHandler(this.phoneBox_Validating);
             // 
             // CustomerEdit
             // 
@@ -268,7 +276,6 @@
         private System.Windows.Forms.CheckBox customerActive;
         private System.Windows.Forms.Button customerCancel;
         private System.Windows.Forms.Button customerSave;
-        private System.Windows.Forms.TextBox phoneBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.BindingSource addressBindingSource;
         private System.Windows.Forms.TextBox addressBox;
@@ -276,9 +283,10 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox cityBox;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox postalCodeBox;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox countryBox;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox postalCodeBox;
+        private System.Windows.Forms.TextBox phoneBox;
     }
 }
