@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ApptsDb;
+using System.IO;
 
 namespace ScheduleIt
 {
@@ -18,15 +19,20 @@ namespace ScheduleIt
         public Login()
         {
             InitializeComponent();
+            loginUsernameLabel.Text = Properties.Resources.Username;
+            loginPasswdLabel.Text = Properties.Resources.Password;
+            loginButton.Text = Properties.Resources.Login;
             this.AcceptButton = loginButton;
         }
 
         private void loginButton_Click(object sender, EventArgs e)
         {
+            string username = loginUsernameBox.Text ?? "";
             try
             {
                 if( _Authenticate() )
                 {
+                    Logger.writeToLog(username, "Login Attempt", "Success");
                     this.Hide();
                     new Main().Show();
                 }
@@ -39,6 +45,7 @@ namespace ScheduleIt
             {
                 loginError.Text = le.Message;
                 loginError.Visible = true;
+                Logger.writeToLog(username, "Login Attempt", "Failure");
             }
 
             loginButton.Enabled = true;

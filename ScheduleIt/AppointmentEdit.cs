@@ -96,7 +96,7 @@ namespace ScheduleIt
 
         private void saveButton_Click(object sender, EventArgs e)
         {
-            if (/*!scheduleVerify()*/false)
+            if (!scheduleVerify())
             {
                 this.DialogResult = DialogResult.None;
                 return;
@@ -136,14 +136,14 @@ namespace ScheduleIt
             try
             { 
                 //establish local business hours 8AM - 5PM Local
-                int businessStartTime = 8;
-                int businessEndTime = 17;
+                DateTime businessStartTime = new DateTime(this.Appointment.start.Year, this.Appointment.start.Month, this.Appointment.start.Day, 8, 0, 0);
+                DateTime businessEndTime = new DateTime(this.Appointment.end.Year, this.Appointment.end.Month, this.Appointment.end.Day, 17, 0, 0); ;
                 
                 this.Appointment.start = startDate.Value.Date.Add(startTime.Value.TimeOfDay);
                 this.Appointment.end = endDate.Value.Date.Add(endTime.Value.TimeOfDay);
 
                 //check for inside business hours
-                if (this.Appointment.start.Hour < businessStartTime || this.Appointment.end.Hour > businessEndTime || Math.Abs((this.Appointment.start - this.Appointment.end).Hours) > 9)
+                if (this.Appointment.start < businessStartTime || this.Appointment.end > businessEndTime || (this.Appointment.end - this.Appointment.start).TotalHours > 9)
                 {
                     throw new ScheduleException("Appointment outside the 8AM - 5PM hours of operation");
                 }

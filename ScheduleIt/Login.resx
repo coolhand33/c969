@@ -163,13 +163,10 @@
     <value>4, 0, 4, 0</value>
   </data>
   <data name="loginPasswdLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>76, 19</value>
+    <value>0, 19</value>
   </data>
   <data name="loginPasswdLabel.TabIndex" type="System.Int32, mscorlib">
     <value>9999</value>
-  </data>
-  <data name="loginPasswdLabel.Text" xml:space="preserve">
-    <value>Password</value>
   </data>
   <data name="&gt;&gt;loginPasswdLabel.Name" xml:space="preserve">
     <value>loginPasswdLabel</value>
@@ -223,13 +220,10 @@
     <value>4, 0, 4, 0</value>
   </data>
   <data name="loginUsernameLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>80, 19</value>
+    <value>0, 19</value>
   </data>
   <data name="loginUsernameLabel.TabIndex" type="System.Int32, mscorlib">
     <value>9999</value>
-  </data>
-  <data name="loginUsernameLabel.Text" xml:space="preserve">
-    <value>Username</value>
   </data>
   <data name="&gt;&gt;loginUsernameLabel.Name" xml:space="preserve">
     <value>loginUsernameLabel</value>
@@ -263,9 +257,6 @@
   </data>
   <data name="loginButton.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
-  </data>
-  <data name="loginButton.Text" xml:space="preserve">
-    <value>Login</value>
   </data>
   <data name="loginButton.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
     <value>ImageAboveText</value>
