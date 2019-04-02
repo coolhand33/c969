@@ -133,6 +133,9 @@ namespace ScheduleIt
             {
                 //appointments
                 case 0:
+                    modifyButton.Visible = true;
+                    addButton.Visible = true;
+                    deleteButton.Visible = true;
                     try
                     {
                         _UpdateAppointmentsTbl();
@@ -144,6 +147,9 @@ namespace ScheduleIt
                     break;
                 //customers
                 case 1:
+                    modifyButton.Visible = true;
+                    addButton.Visible = true;
+                    deleteButton.Visible = true;
                     try
                     {
                         _UpdateCustomersTbl();
@@ -152,6 +158,12 @@ namespace ScheduleIt
                     {
                         MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);                    
                     }
+                    break;
+                //reports
+                case 2:
+                    modifyButton.Visible = false;
+                    addButton.Visible = false;
+                    deleteButton.Visible = false;
                     break;
                 default:
                     break;
@@ -267,6 +279,33 @@ namespace ScheduleIt
                     return;
                 }
             });
+        }
+
+        private void _RunReport(int reportId)
+        {
+            var result = DataAccess.RunReportById(reportId);
+
+            BindingSource bindingSource = new BindingSource();
+            bindingSource.DataSource = result;
+
+            reportResultsGrid.DataSource = bindingSource;
+        }
+
+        private void runReport_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                _RunReport(reportList.SelectedIndex);
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                MessageBox.Show("No report has been selected!", "Uh Oh!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void reportList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            runReport.Enabled = true;
         }
     }
 }

@@ -40,13 +40,13 @@
             this.apptTab = new System.Windows.Forms.TabPage();
             this.custTab = new System.Windows.Forms.TabPage();
             this.customersDataGrid = new System.Windows.Forms.DataGridView();
-            this.reminderTimer = new System.Windows.Forms.Timer(this.components);
             this.reportsTab = new System.Windows.Forms.TabPage();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.runReport = new System.Windows.Forms.Button();
-            this.reportResultBox = new System.Windows.Forms.GroupBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.reportResultBox = new System.Windows.Forms.GroupBox();
+            this.runReport = new System.Windows.Forms.Button();
+            this.reportList = new System.Windows.Forms.ListBox();
+            this.reminderTimer = new System.Windows.Forms.Timer(this.components);
+            this.reportResultsGrid = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.appointmentGridView)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.apptTab.SuspendLayout();
@@ -54,7 +54,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.customersDataGrid)).BeginInit();
             this.reportsTab.SuspendLayout();
             this.reportResultBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reportResultsGrid)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -206,57 +206,18 @@
             this.customersDataGrid.Size = new System.Drawing.Size(1056, 661);
             this.customersDataGrid.TabIndex = 0;
             // 
-            // reminderTimer
-            // 
-            this.reminderTimer.Enabled = true;
-            this.reminderTimer.Interval = 1000;
-            this.reminderTimer.Tick += new System.EventHandler(this.reminderTimer_Tick);
-            // 
             // reportsTab
             // 
             this.reportsTab.Controls.Add(this.textBox1);
             this.reportsTab.Controls.Add(this.reportResultBox);
             this.reportsTab.Controls.Add(this.runReport);
-            this.reportsTab.Controls.Add(this.listBox1);
+            this.reportsTab.Controls.Add(this.reportList);
             this.reportsTab.Location = new System.Drawing.Point(4, 25);
             this.reportsTab.Name = "reportsTab";
             this.reportsTab.Size = new System.Drawing.Size(1062, 667);
             this.reportsTab.TabIndex = 2;
             this.reportsTab.Text = "Reports";
             this.reportsTab.UseVisualStyleBackColor = true;
-            // 
-            // listBox1
-            // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 16;
-            this.listBox1.Items.AddRange(new object[] {
-            "Appointment types by month",
-            "Schedule for each consultant",
-            "Total number of appointments per consultant"});
-            this.listBox1.Location = new System.Drawing.Point(8, 243);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(391, 276);
-            this.listBox1.TabIndex = 0;
-            // 
-            // runReport
-            // 
-            this.runReport.Location = new System.Drawing.Point(143, 526);
-            this.runReport.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.runReport.Name = "runReport";
-            this.runReport.Size = new System.Drawing.Size(121, 57);
-            this.runReport.TabIndex = 16;
-            this.runReport.Text = "Run Report";
-            this.runReport.UseVisualStyleBackColor = true;
-            // 
-            // reportResultBox
-            // 
-            this.reportResultBox.Controls.Add(this.dataGridView1);
-            this.reportResultBox.Location = new System.Drawing.Point(413, 19);
-            this.reportResultBox.Name = "reportResultBox";
-            this.reportResultBox.Size = new System.Drawing.Size(640, 628);
-            this.reportResultBox.TabIndex = 17;
-            this.reportResultBox.TabStop = false;
-            this.reportResultBox.Text = "Report Results";
             // 
             // textBox1
             // 
@@ -270,13 +231,71 @@
             this.textBox1.Text = "Welcome to the report viewer!\r\n\r\nPlease select a report from the list then click " +
     "the \'Run Report\' button.";
             // 
-            // dataGridView1
+            // reportResultBox
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(6, 22);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(628, 600);
-            this.dataGridView1.TabIndex = 19;
+            this.reportResultBox.Controls.Add(this.reportResultsGrid);
+            this.reportResultBox.Location = new System.Drawing.Point(413, 19);
+            this.reportResultBox.Name = "reportResultBox";
+            this.reportResultBox.Size = new System.Drawing.Size(640, 628);
+            this.reportResultBox.TabIndex = 17;
+            this.reportResultBox.TabStop = false;
+            this.reportResultBox.Text = "Report Results";
+            // 
+            // runReport
+            // 
+            this.runReport.Enabled = false;
+            this.runReport.Location = new System.Drawing.Point(100, 552);
+            this.runReport.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.runReport.Name = "runReport";
+            this.runReport.Size = new System.Drawing.Size(206, 67);
+            this.runReport.TabIndex = 16;
+            this.runReport.Text = "Run Report";
+            this.runReport.UseVisualStyleBackColor = true;
+            this.runReport.Click += new System.EventHandler(this.runReport_Click);
+            // 
+            // reportList
+            // 
+            this.reportList.FormattingEnabled = true;
+            this.reportList.ItemHeight = 16;
+            this.reportList.Items.AddRange(new object[] {
+            "Appointment types by month",
+            "Schedule for each consultant",
+            "Total number of appointments per month"});
+            this.reportList.Location = new System.Drawing.Point(8, 243);
+            this.reportList.Name = "reportList";
+            this.reportList.Size = new System.Drawing.Size(391, 276);
+            this.reportList.TabIndex = 0;
+            this.reportList.SelectedIndexChanged += new System.EventHandler(this.reportList_SelectedIndexChanged);
+            // 
+            // reminderTimer
+            // 
+            this.reminderTimer.Enabled = true;
+            this.reminderTimer.Interval = 1000;
+            this.reminderTimer.Tick += new System.EventHandler(this.reminderTimer_Tick);
+            // 
+            // reportResultsGrid
+            // 
+            this.reportResultsGrid.AllowUserToAddRows = false;
+            this.reportResultsGrid.AllowUserToDeleteRows = false;
+            this.reportResultsGrid.AllowUserToResizeRows = false;
+            this.reportResultsGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.reportResultsGrid.CausesValidation = false;
+            this.reportResultsGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.reportResultsGrid.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.reportResultsGrid.Location = new System.Drawing.Point(6, 22);
+            this.reportResultsGrid.MultiSelect = false;
+            this.reportResultsGrid.Name = "reportResultsGrid";
+            this.reportResultsGrid.ReadOnly = true;
+            this.reportResultsGrid.RowHeadersVisible = false;
+            this.reportResultsGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
+            this.reportResultsGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.reportResultsGrid.ShowCellErrors = false;
+            this.reportResultsGrid.ShowCellToolTips = false;
+            this.reportResultsGrid.ShowEditingIcon = false;
+            this.reportResultsGrid.ShowRowErrors = false;
+            this.reportResultsGrid.Size = new System.Drawing.Size(628, 600);
+            this.reportResultsGrid.TabIndex = 15;
+            this.reportResultsGrid.TabStop = false;
             // 
             // Main
             // 
@@ -303,7 +322,7 @@
             this.reportsTab.ResumeLayout(false);
             this.reportsTab.PerformLayout();
             this.reportResultBox.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reportResultsGrid)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -325,7 +344,7 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.GroupBox reportResultBox;
         private System.Windows.Forms.Button runReport;
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.ListBox reportList;
+        private System.Windows.Forms.DataGridView reportResultsGrid;
     }
 }
