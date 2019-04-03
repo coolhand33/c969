@@ -243,7 +243,7 @@ namespace ScheduleIt
 
         private async void _ShowReminder(string customerName, DateTime startTime)
         {
-            await Task.Run(() => MessageBox.Show($"You have an appointment with {customerName} at {startTime.ToShortTimeString()}", "15 Minute Reminder", MessageBoxButtons.OK, MessageBoxIcon.Information));
+            await Task.Run(() => MessageBox.Show($"You have an appointment with {customerName} at {startTime.ToShortTimeString()}", "Appointment Reminder", MessageBoxButtons.OK, MessageBoxIcon.Information));
             return;
         }
 
@@ -263,8 +263,12 @@ namespace ScheduleIt
                         DateTime reminderTime = appt.start - new TimeSpan(0, 15, 0);
                         DateTime timeNow = DateTime.Now;
 
-                        // if the reminder time has already passed we do not want to setup a reminder
-                        if( !(timeNow > reminderTime) )
+                        // trigger reminder immediately if the reminder time has passed, otherwise setup a future reminder
+                        if( timeNow > reminderTime )
+                        {
+                            _ShowReminder(appt.customer.customerName, appt.start);
+                        }
+                        else
                         {
                             RemindersCache.Add(new Reminder(appt.appointmentId, reminderTime, appt.customer.customerName, appt.start));
 

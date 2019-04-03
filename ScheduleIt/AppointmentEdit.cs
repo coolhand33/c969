@@ -137,7 +137,7 @@ namespace ScheduleIt
             { 
                 //establish local business hours 8AM - 5PM Local
                 DateTime businessStartTime = new DateTime(this.Appointment.start.Year, this.Appointment.start.Month, this.Appointment.start.Day, 8, 0, 0);
-                DateTime businessEndTime = new DateTime(this.Appointment.end.Year, this.Appointment.end.Month, this.Appointment.end.Day, 17, 0, 0); ;
+                DateTime businessEndTime = new DateTime(this.Appointment.end.Year, this.Appointment.end.Month, this.Appointment.end.Day, 17, 0, 1); ;
                 
                 this.Appointment.start = startDate.Value.Date.Add(startTime.Value.TimeOfDay);
                 this.Appointment.end = endDate.Value.Date.Add(endTime.Value.TimeOfDay);
